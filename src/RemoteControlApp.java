@@ -41,16 +41,17 @@ public class RemoteControlApp {
 		case "8":
 		case "9":
 		case "0":
-		case "!off":
 			printButtonboop(); // Case 0-9 call printButton method (fall through method)
-			break;
+			break;		
 			
-		case "off":
+		case "off":			
 			printOff();
 			break;
-
+			
+		default: 
+			printWrong(); // Command not recognized mirrors printButtonboop method with nested powerOn method creating a looping fall through method.
 		}
-//		while (!choice.equalsIgnoreCase("Off")) {
+	//while (!choice.equalsIgnoreCase("Off")) {
 
 		kb.close();
 	}
@@ -81,6 +82,8 @@ public class RemoteControlApp {
 	
 	public static void printWrong() {
 		System.out.println("Command not recognized");
+		powerOn();
+		
 	}
 
 	public static void printOff() {
